@@ -1,246 +1,320 @@
-/*przy klikaniu w input search na telefonie cały footer skacze do góry i nie wiem za bardzo co za to odpowiada. Próbuję też dociec co odpowiada za ten biały pasek na dole strony 
-ale tez jestem bez pomysłu.*/
-
-
-#navbar {
-    display: grid;
-    grid-template-columns: 1fr 50px 50px 50px 118.45px;
-    grid-template-rows: 60px;
-    grid-template-areas: 
-    " . gmail image menu sign-in";
-    margin: 0 20px 0 10px;
+body {
+    background-color: #f8f9fa;
+    font-family: Roboto, 'Segoe UI', Tahoma, sans-serif;
+    font-size: 81.25%;
+    display:block;
+    margin:0;
+}
+.page{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
-a, p {
+body, input, button {
+    font-size: 14px;
+    font-family: arial,sans-serif;
+    color: #222;
+}
+.navbar{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 6px;
+    height: 60px;
+    flex-shrink: 0;
+    box-sizing: border-box;
+    float: right;
+}
+.navbar_text a{
+    cursor: pointer;
+    vertical-align: middle;
     text-decoration: none;
-    color: rgba(0,0,0,0.87);
-    font-size: 13px;
-    font-family: 'Roboto', Arial , sans-serif;
+    color: #222;
+    padding-right: 15px;
 }
-a:hover {
+.navbar_text a:hover{
+    text-decoration: underline;
+}
+.navbar_icon{    
+    padding-top: 20px;
+    display: inline-block;
+    height: 40px;
+    width: 40px;   
+    border-radius: 50%;       
+    margin-right: 15px;
+    background-color:transparent;
+    
+    cursor:pointer;
+}
+.navbar_icon:hover{
+    
+    background-color: gray;
+}
+.navbar_icon a li{
+    
+    align-self: center;
+    justify-self: center;
+}
+.navbar_icon a {
+    
+    padding-left: 12px;
+    text-decoration: none;
+    color: #222;
+    
+}
+.blue_login{
+    display: inline-block;
+    margin-left: 8xp;
+    background: #4285f4;
+    background: #1a73e8;
+    color: #fff;
+    border: 1px solid transparent;   
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: .25px;
+    line-height: 16px;
+    margin-right: 8px;
+    min-width: 96px;
+    padding: 9px 23px;    
+    border-radius: 4px;    
+    cursor: pointer;
+}
+.blue_login:hover{
+    border-color: #4285f4;
+}
+
+
+.search{
+    width: auto;
+    max-width: 584px;
+    background: #fff;
+    border: 1px solid #dfe1e5;
+    box-shadow: none;
+    border-radius: 24px;
+    z-index: 3;
+    height: 44px;
+    margin: 0 auto;
+}
+
+.search_in{
+    flex: 1;
+    display: flex;
+    padding: 5px 8px 0 16px;
+    padding-left: 14px;
+}
+.type_in{
+    background-color: transparent;
+    border: none;   
+    color: rgba(0,0,0,.87);  
+    outline: none;
+    display: flex;
+    flex: 100%;
+    -webkit-tap-highlight-color: transparent;
+    margin-top: 0;
+    height: 34px;
+    max-width: 447px;
+    font-size: 16px;
+    align-self: flex-end;
+    padding-left: 20px;
+    padding-bottom: 5px;
+}
+.lupa{
+    max-width: 28px;
+    background: transparent;
+
+    padding-bottom: 10px;
+}
+.microphone{
+    max-width: 18px;
+    padding-top: 5px;
+    align-self: flex-end;
+    padding-left: 30px;
+}
+
+.center {
+    margin-top: 70px;
+}
+.logo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.google{
+    max-width: 272px ;
+    max-height: 92px;
+    width: 272px;
+    background-color: transparent;
+}
+
+.search_field{
+    margin-top: 20px;
+    display: block;
+    height: 70px;   
+}
+.search_buttons{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;   
+}
+
+.searching_btn{
+    
+    border: 1px solid transparent;
+    border-radius: 5px;
+    color: #3c4043;
+    font-family: arial,sans-serif;
+    font-size: 14px;
+    margin: 11px 4px;
+    padding: 0 16px;
+    line-height: 27px;
+    height: 36px;
+    min-width: 54px;
+    text-align: center;
+    cursor: pointer;
+   
+}
+.lucky_btn{
+    border: 1px solid transparent;
+    border-radius: 5px;
+    color: #3c4043;
+    font-family: arial,sans-serif;
+    font-size: 14px;
+    margin: 11px 4px;
+    padding: 0 16px;
+    line-height: 27px;
+    height: 36px;
+    min-width: 54px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.footer{
+    
+    position: fixed;
+    bottom: 0;
+    width: 100%;   
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background: rgb(204, 204, 204);
+}
+.polska{
+    padding: 15px 30px;
+    border-bottom: 1px solid #dadce0;
+    font-size: 15px;
+    color: rgba(0,0,0,.54);
+}
+.bottom_bottom{display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    color: rgba(0,0,0,.54);
+}
+.pHiOh {
+    display: block;
+    padding: 15px;
+    white-space: nowrap;
+    color: rgba(0,0,0,.54);
+    text-decoration: transparent;
+}
+
+.pHiOh a:hover{   
+    text-decoration: underline;
+}
+.bottom{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: #f2f2f2;
+
+}
+
+.polska{
+    display: block;
+    padding: 15px 30px;
+    border-bottom: 1px solid #dadce0;
+    font-size: 15px;
+    color: rgba(0,0,0,.54);
+}
+
+.other{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+.footer_middle{
+    display: flex;
+    flex-wrap: wrap;
+    border-bottom: 1px solid #dadce0;
+    order: 2;
+    padding-bottom: 15px;
+}
+
+.footer_top{
+    justify-content: flex-start;
+    min-width: 30%;
+    order: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.footer_bottom{
+    justify-content: flex-end;
+    min-width: 30%;
+    order: 3;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    text-align: center;
+}
+ .coal {
+    margin-top:15px;
+    color: #70757a;
+    text-decoration: none;
+    white-space: nowrap;
+    vertical-align: top;
+    
+}
+
+.coal:hover{
+    text-decoration:underline;
+}
+
+.footer_btns{
+    display: block;
+    padding: 15px;
+    white-space: nowrap;
+    text-decoration: none;
+    color: #70757a;
+}
+.footer_btns:hover{
     text-decoration: underline;
 }
 
-
-#gmail {
-    grid-area: gmail;
-    justify-self: center;
-    align-self: center;
-    margin-right: 15px;
-}
-#image {
-    grid-area: image;
-    justify-self: center;
-    align-self: center;
-    margin-right: 10px;
-}
-#menu {
-    height: 36px;
-    width: 36px;
-    grid-area: menu;
-    justify-self: center;
-    align-self: center; 
-    margin-right: 30px;
-    margin-left: 20px;
-    border-radius: 50%;
-}
-#menu:hover{
+@media only screen and (max-width: 1200px){
+    .other{
+        justify-content: space-evenly;
+    }
+    .footer_top{
+        justify-content: space-evenly;
+        order: 2;
+    }
+    .footer_middle{
+        justify-content: space-evenly;
+        width: 100%;
+        justify-content: center;
+        order: 1;
+    }
     
-    background-color: #5F6368;
+    .line_bottom{
+        justify-content: space-evenly;
+        order: 3;
+    }
 }
-#menu_icon{
-    
-    padding-left: 9px;
-    justify-self: bottom;
-    align-self: center;
-    
-}
-#menu_icon i {
-    padding-top: 10px;
-}
-#sign-in {
-    grid-area: sign-in;
-    justify-self: center;
-    align-self: center;
-    background-color: #1f5abe;
-    height: 36px;
-    width: 118.45px;
-    line-height: 36px;
-    text-align: center;
-    color: white;
-    font-weight: light;
-    border: 1px solid #4285f4;
-    border-radius: 5%;
-}
-#sign-in:hover{
-    text-decoration: none;
-    background-color: #5589e4;
-    border: 1px solid #5589e4;
-}
-
-/*Main Section*/
-#main {
-    min-height: 100%;
-    display: grid;
-    padding-top: 50px;
-    padding-bottom: 0px;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 70px 70px 1fr;
-    grid-template-areas: 
-    ". logo ."
-    ". search ."
-    ". flexbox ."
-    ". google-text .";
-}
-
-#logo {
-    grid-area: logo;
-    justify-self: center;
-    align-self: end;
-    aspect-ratio: auto 272 / 92
-}
-#search {
-    border: none;
-    grid-area: search;
-    height: 30px;
-    width: 80%;
-    align-self: center;
-    justify-self: center;
-    border: 1px solid rgba(0, 0, 0, 0.151);
-    border-radius: 30px;
-    background: url(search-solid.svg) no-repeat scroll 0.02px 0.02px;
-    background-position: left;
-    padding-left:30px;
-
-}
-
-#search:focus {
-    box-shadow: 1px 1px 5px grey;
-}
-#search:hover {
-    box-shadow: 1px 1px 5px grey;
-}
-
-#flexbox {
-    display: flexbox;
-    grid-area: flexbox;
-    justify-self: center;
-    align-self: center;
-}
-#google-search-btn {
-    border: none;
-    font-size: 15px;
-    color: #70757a;
-    margin-right: 25px;
-    padding: 7px 15px 7px 15px;
-    border-radius: 3px;
-}
-#random-search-btn {
-    border: none;
-    font-size: 15px;
-    color: #5F6368;
-    padding: 7px 15px 7px 15px;
-    border-radius: 3px;
-}
-#google-search-btn:hover {
-    border: 1px solid rgba(0, 0, 0, 0.226);
-    cursor: pointer;
-}
-#google-search-btn:active{
-    border-color: #4285f4;
-    border-width: 2px;
-    
-}
-#random-search-btn:hover {
-    border: 1px solid rgba(0, 0, 0, 0.226);
-    cursor: pointer;
-}
-
-#google-text {
-    grid-area: google-text;
-    justify-self: center;
-}
-#english {
-    color: blue;
-}
-
-
-#footer_location_bar {
-    background-color: #e5eaee;
-    min-width: 100%;
-    position: relative;
-    bottom: 0;    
-    display: block;;
-    min-height: 50px;
-} 
-#footer_location_bar p{
-    padding-top: 20px;
-    padding-left: 20px;
-    margin-block-start: 0px;
-    margin-block-end: 0px;
-    justify-self: start;
-    align-self: center;
-    text-align: left;
-    color: #70757a;
-    
-    
-}
-#footer {
-    border-top: 1px #000;
-    color: #70757a;
-    margin-block-start: 0px;
-    margin-block-end: 0px;
-    background-color: #e5eaee;
-    min-width: 100%;
-    position: relative;
-    top: 0;
-    bottom: 0;
-    display: grid;
-    grid-template-columns: 70px 100px 100px 150px 1fr 70px 70px 70px;
-    grid-template-rows: 50px;
-    grid-template-areas: 
-    "about advertising business hsw . privacy terms settings";
-}
-#footer a{
-    color: #70757a;
-}
-#about {
-    grid-area: about;
-    justify-self: center;
-    align-self: center;
-}
-#advertising {
-    grid-area: advertising;
-    justify-self: center;
-    align-self: center;
-}
-#business {
-    grid-area: business;
-    justify-self: center;
-    align-self: center;
-}
-#hsw {
-    grid-area: hsw;
-    justify-self: center;
-    align-self: center;
-}
-#privacy {
-    grid-area: privacy;
-    justify-self: end;
-    align-self: center;
-    
-}
-#terms {
-    grid-area: terms;
-    justify-self: end;
-    align-self: center;
-   
-}
-#settings {
-    grid-area: settings;
-    justify-self: end;
-    align-self: center;  
-    margin-block-start: 0px;
-    margin-block-end: 0px;
-}
-

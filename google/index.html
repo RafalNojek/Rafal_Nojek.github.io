@@ -2,43 +2,71 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
     <link rel="stylesheet" href="style.css">
-    <title>Google</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+    <title>Google Homepage</title>
 </head>
+
 <body>
-    <div id="navbar">        
-        <a href="#" id="gmail">Gmail</a>
-        <a href="#" id="image">Grafika</a>
-        <div id="menu">
-            <a href="#" id="menu_icon"><i class="fas fa-th fa-lg" ></i></a>
+    <div class="page">
+      <div class="navbar">
+        <div class="navbar_text"><a href="#">Gmail</a></div>
+        <div class="navbar_text"><a href="#">Images</a></div>
+        <div class="navbar_icon"><a href="#"><i class="fas fa-th"></i></a></i></div>
+        <button class="blue_login" type="button">Zaloguj się</button>
+      </div>
+      <div class="center">
+          <div class="logo">
+            <img id="google" src="google2.0.0.jpg" height="250" alt="logo" >
+          </div>
+          <div class="search">
+              <div class="search_in">
+                  <img class="lupa" src="lupaa.jpg" alt="lupa">
+                  <input class="type_in" type="text" placeholder="Search Google or type a URL" >
+                  <a href="#"><img class="microphone" src="microphone.png" alt="mikrofon" title="Search by voice"></a>
+              </div>
+          </div>
+          <div class="search-field">
+              <div class="search_buttons">
+                  <button class="searching_btn">Wyszukaj w Google</button>
+                  <button class="lucky_btn">Szczęśliwy traf</button>
+              </div>
+          </div>
+          
+          <div class="bottom">
+            <div class="polska">Polska</div>
+            <div class="other">
+                <div class="footer_top">
+                    <a class="footer_btns" href="#">O nas</a>
+                    <a class="footer_btns" href="#">Reklamuj się</a>
+                    <a class="footer_btns" href="#">Dla firm</a>
+                    <a class="footer_btns" href="#">Jak działa wyszukiwarka</a>
+                </div>
+                <div class="footer_middle">
+                    <a class="coal" href="#">
+                        Neutralność węglowa od 2007 roku
+                        
+                    </a>
+                </div>
+                <div class="footer_bottom">
+                    <a class="footer_btns" href="#">Prywatność</a>
+                    <a class="footer_btns" href="#">Warunki</a>
+                    <a class="footer_btns" href="#">Ustawienia</a>
+                </div>
+            </div>
         </div>
-        
-        <a href="#" id="sign-in">Zaloguj się</a>
     </div>
-    <div id="main">
-        <a href="#" id="logo"><img src="google2.0.0.jpg" height="250"  ></a>
-        <input type="text" id="search">
-        <div id="flexbox">
-            <button id="google-search-btn">Szukaj w Google</button><button id="random-search-btn">Szczęśliwy Traf</button>
-        </div>
-        <p id="google-text">Korzystaj z Google w tych językach: <a href="#" id="english">English</a></p>
-    </div>
-    <div id="footer_location_bar">
-        <p>Polska</p>
-    </div>
-    <div id="footer">
-        <a href="#" id="about">O nas</a>
-        <a href="#" id="advertising">Reklamuj się</a>
-        <a href="#" id="business">Dla firm</a>
-        <a href="#" id="hsw">Jak działa wyszukiwarka</a>
-        <a href="#" id="privacy">Prywatność</a>
-        <a href="#" id="terms">Warunki</a>
-        <a href="#" id="settings">Ustawienia</a>
-    </div>
+
+
+
+      </div>
+
+  </div>
+    
+  
+
 </body>
 </html>
