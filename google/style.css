@@ -5,6 +5,10 @@ body {
     display:block;
     margin:0;
 }
+.results .search_results{
+    display:none;
+}
+
 .page{
     display: flex;
     flex-direction: column;
@@ -234,7 +238,7 @@ body, input, button {
 
 }
 
-.polska{
+.poland{
     display: block;
     padding: 15px 30px;
     border-bottom: 1px solid #dadce0;
