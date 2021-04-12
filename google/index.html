@@ -9,11 +9,14 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
     <title>Google Homepage</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <script src="app.js" defer></script>
 </head>
-
-<body class="results" >
+<body>
+    <div id="app">
     <div class="search_results">       
         <div class="navbar">
+            
             <img class="small_google_logo" src="googlelogo.png" alt="smallgoogle">
             <div class="search">
                 <div class="search_in">
@@ -27,7 +30,7 @@
             </div>            
             <div class="navbar_icon"><a href="#"><i class="fas fa-th  " ></i></a></i></div>
             <button class="blue_login" type="button">Zaloguj się</button>
-          </div>
+          
           <div class="type_bar">
               <div id="show_all"><a href="#"><i class="fas fa-search"></i><span class="nav-text"> Wszystko</span></a> </div>
               <div class="typebar_text"><a href="#"><span class="nav-text"><i class="far fa-newspaper"></i> Wiadomości</span></a> </div>
@@ -130,13 +133,13 @@
             <a class="footer_btns" href="#">Prywatność</a>
             <a class="footer_btns" href="#">Warunki</a>
           </div>
-        
+        </div>
 
     </div>
 
         
         
-
+    
     <div class="page">
       <div class="navbar">
         <div class="navbar_text"><a href="#">Gmail</a></div>
@@ -151,13 +154,13 @@
           <div class="search">
               <div class="search_in">
                   <img class="lupa" src="lupaa.jpg" alt="lupa">
-                  <input class="type_in" type="text" placeholder="Search Google or type a URL" >
+                  <input id="changer" v-model="googleSearch" class="type_in" type="text" placeholder="Search Google or type a URL"  >
                   <a href="#"><img class="microphone" src="microphone.png" alt="mikrofon" title="Search by voice"></a>
               </div>
           </div>
           <div class="search-field">
               <div class="search_buttons">
-                  <button class="searching_btn">Wyszukaj w Google</button>
+                  <button class="searching_btn" onclick="addresults()">Wyszukaj w Google</button>
                   <button class="lucky_btn">Szczęśliwy traf</button>
               </div>
           </div>
@@ -186,13 +189,6 @@
         </div>
     </div>    
     
-   
-
-
-    
-
-  
-  
-
+    </div>
 </body>
 </html>
