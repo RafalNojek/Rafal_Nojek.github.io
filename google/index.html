@@ -11,25 +11,31 @@
     <title>Google Homepage</title>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
     <script src="app.js" defer></script>
+    <script src="cities.js"></script>
 </head>
-<body>
-    <div id="app">
-    <div class="search_results">       
+<body >
+   
+    <div class="search_results">   
+        <div id="app2">
+       <div class="upper">
+        <img class="small_google_logo" src="googlelogo.png" alt="smallgoogle">
+        <div class="search">
+            <div class="search_in">
+                
+                <input class="type_in" type="text" v-model="googleSearch">
+                <div class="cross"><i class="fas fa-times fa-1x"></i></div> 
+                <div class="keyboard"><a href="#"><i class="fas fa-keyboard fa-1x"></i></a></div>                  
+                <a href="#"><img class="microphone" src="microphone.png" alt="mikrofon" title="Search by voice"></a>           
+                <img class="lupa" src="lupaa.jpg" alt="lupa">                   
+            </div>
+        </div>  
+        <div class="navbar_icon"><a href="#"><i class="fas fa-th  " ></i></a></i></div>
+        <button class="blue_login" type="button">Zaloguj się</button>
+        </div>
         <div class="navbar">
             
-            <img class="small_google_logo" src="googlelogo.png" alt="smallgoogle">
-            <div class="search">
-                <div class="search_in">
-                    
-                    <input class="type_in" type="text" value="jakiś wynik google">
-                    <div class="cross"><i class="fas fa-times fa-1x"></i></div> 
-                    <div class="keyboard"><a href="#"><i class="fas fa-keyboard fa-1x"></i></a></div>                  
-                    <a href="#"><img class="microphone" src="microphone.png" alt="mikrofon" title="Search by voice"></a>           
-                    <img class="lupa" src="lupaa.jpg" alt="lupa">                   
-                </div>
-            </div>            
-            <div class="navbar_icon"><a href="#"><i class="fas fa-th  " ></i></a></i></div>
-            <button class="blue_login" type="button">Zaloguj się</button>
+                   
+           
           
           <div class="type_bar">
               <div id="show_all"><a href="#"><i class="fas fa-search"></i><span class="nav-text"> Wszystko</span></a> </div>
@@ -134,13 +140,14 @@
             <a class="footer_btns" href="#">Warunki</a>
           </div>
         </div>
-
+      
     </div>
 
-        
+</div>
         
     
     <div class="page">
+        <div id="app">
       <div class="navbar">
         <div class="navbar_text"><a href="#">Gmail</a></div>
         <div class="navbar_text"><a href="#">Images</a></div>
@@ -154,9 +161,14 @@
           <div class="search">
               <div class="search_in">
                   <img class="lupa" src="lupaa.jpg" alt="lupa">
-                  <input id="changer" v-model="googleSearch" class="type_in" type="text" placeholder="Search Google or type a URL"  >
+                  <input list="browsers" v-model="googleSearch" class="type_in" type="text" placeholder="Search Google or type a URL" v-on:keyup.enter="add_results" >
+                  <datalist id="browsers">
+                    <option v-for="item in searchCities" :key="item.name">
+                   
+                  </datalist>
                   <a href="#"><img class="microphone" src="microphone.png" alt="mikrofon" title="Search by voice"></a>
               </div>
+            
           </div>
           <div class="search-field">
               <div class="search_buttons">
@@ -187,8 +199,10 @@
                 </div>
             </div>
         </div>
+        </div>  
     </div>    
     
-    </div>
+   
 </body>
+
 </html>

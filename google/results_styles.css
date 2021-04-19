@@ -8,13 +8,34 @@
     height: 100%;
     margin-top: 15px;
 }
-
+.results .search_results .upper{
+    display:flex;
+}
 .results .small_google_logo{
     height: 30px;
     width: 92px;
     margin-left: 30px;
+    padding-top: 20px;
 }
-
+.results .blue_login{
+    display: inline-block;
+    margin-left: 8xp;
+    background: #4285f4;
+    background: #1a73e8;
+    color: #fff;
+    border: 1px solid transparent;   
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: .25px;
+    line-height: 16px;
+    margin-right: 8px;
+    min-width: 96px;
+    padding: 9px 23px;    
+    border-radius: 4px;    
+    cursor: pointer;
+    height: 32px;
+    margin-top: 12px;
+}
 .results .search{
     width: 750px;
     height: 34px;

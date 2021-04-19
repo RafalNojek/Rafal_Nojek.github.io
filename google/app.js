@@ -1,16 +1,20 @@
-window.onload = function () {
-    var main = new Vue({
+
+    var app = new Vue({
         el: '#app',
         data: {
-            googleSearch: ''
+            googleSearch: '',
+            cities: window.cities,
+            filteredCities: [],
         },
-        updated: function() {
+        updated:function() {
             if(app.googleSearch !== '')
                 document.body.classList.add("results");
-                console.log(googleSearch)
-          }
-    });
-}
+                console.log(app.googleSearch)
+          
+        },
+        
+    })
+
 var changer = '';
 function addresults(){
 
@@ -20,3 +24,28 @@ function addresults(){
    } 
     
 }
+
+var app2 = new Vue({
+    el:'#app2',
+    data:{
+        googleSearch: "",
+        cities: window.cities,  
+        filteredCities:[]
+    }
+,
+    computed: {
+        searchCities: function() {
+            if(this.googleSearch.length >2){
+                var filtered = cities.filter(function (el) {
+                    return (el => el.name.startsWith(this.googleSearch));
+                  });
+                  
+                filtered = filtered.slice(0,10);
+                filtered.forEach(element => this.filteredCities.unshift(element))
+
+                
+               
+            }  
+        }   
+    }
+})
