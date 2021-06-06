@@ -14,7 +14,7 @@
     <script src="cities.js"></script>
 </head>
 <body >
-   
+   <div class="app-two">
     <div class="search_results">   
         
        <div class="upper">
@@ -22,7 +22,7 @@
         <div class="search">
             <div class="search_in">
                 
-                <input class="type_in" type="text" v-model="googleSearch">
+                <input class="type_in" type="text" v-model="shared.googleSearch">
                 <div class="cross"><i class="fas fa-times fa-1x"></i></div> 
                 <div class="keyboard"><a href="#"><i class="fas fa-keyboard fa-1x"></i></a></div>                  
                 <a href="#"><img class="microphone" src="microphone.png" alt="mikrofon" title="Search by voice"></a>           
@@ -142,8 +142,9 @@
         </div>
       
     
-
+    </div>
 </div>
+
         
     
     <div class="page">
@@ -163,18 +164,24 @@
                   <img class="lupa" src="lupaa.jpg" alt="lupa">
                   <input list="browsers" v-model="googleSearch" class="type_in" type="text" placeholder="Search Google or type a URL"  >
                   
-                  <!-- <datalist id="browsers">
-                    <option v-for="item in searchCities" :key="item.name">
-                   
-                  </datalist> -->
                   <a href="#"><img class="microphone" src="microphone.png" alt="mikrofon" title="Search by voice"></a>
               </div>
             
           </div>
-            <div class="autocompleter-results">
-                <div class="city" v-for="city in searchCities">
-                    {{ city.name }}
-                </div>
+          <div class="city" v-for="city in searchCities" @click=changeResults>
+            <div class="autocompleter_search">
+                <div class="autocompleter_search_in">
+                    <img class="lupa" src="lupaa.jpg" alt="lupa">
+                    <div class="autocompleter_search_in_text">
+                        <span v-html="city.nameHtml"></span>
+                    </div>
+                    
+            </div>
+            </div>
+            
+          </div>
+            
+                
             
           <div class="search-field">
               <div class="search_buttons">
