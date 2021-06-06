@@ -16,7 +16,7 @@
 <body >
    
     <div class="search_results">   
-        <div id="app2">
+        
        <div class="upper">
         <img class="small_google_logo" src="googlelogo.png" alt="smallgoogle">
         <div class="search">
@@ -141,7 +141,7 @@
           </div>
         </div>
       
-    </div>
+    
 
 </div>
         
@@ -161,15 +161,21 @@
           <div class="search">
               <div class="search_in">
                   <img class="lupa" src="lupaa.jpg" alt="lupa">
-                  <input list="browsers" v-model="googleSearch" class="type_in" type="text" placeholder="Search Google or type a URL" v-on:keyup.enter="add_results" >
-                  <datalist id="browsers">
+                  <input list="browsers" v-model="googleSearch" class="type_in" type="text" placeholder="Search Google or type a URL"  >
+                  
+                  <!-- <datalist id="browsers">
                     <option v-for="item in searchCities" :key="item.name">
                    
-                  </datalist>
+                  </datalist> -->
                   <a href="#"><img class="microphone" src="microphone.png" alt="mikrofon" title="Search by voice"></a>
               </div>
             
           </div>
+            <div class="autocompleter-results">
+                <div class="city" v-for="city in searchCities">
+                    {{ city.name }}
+                </div>
+            
           <div class="search-field">
               <div class="search_buttons">
                   <button class="searching_btn" onclick="addresults()">Wyszukaj w Google</button>
