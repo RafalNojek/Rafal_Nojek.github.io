@@ -1,26 +1,32 @@
-const shared = {
-    googleSearch:null
-  }
+var shared = "Luanda"
 
     var app = new Vue({
         el: '#app',
         data: {
+            isOnResults: false,
             googleSearch: '',
             cities: window.cities.map((cityData) => {
                 cityData.nameLowerCase = cityData.name.toLowerCase();
                 return cityData;}),
-            filteredCities: [],
+            filteredCities: [],           
+            autocompleterIsActive: false,
+            activeResult:0,
+
         },
         updated:function() {
-            if(app.googleSearch.length >=10)
+            if(app.googleSearch.length >=100)
                 document.body.classList.add("results");
                 console.log(app.googleSearch)
           
         },
-        computed:{
-            searchCities() {
+        watch : {
+            googleSearch() {
+                if (this.autocompleterIsActive) {
+                    return;
+                }
                 if (this.googleSearch.length === 0) {
-                    return [];
+                    filteredCities =[];
+                    return ;
                 }
                 let returnedCities = [];
                 let searchLowerCase = this.googleSearch.toLowerCase();
@@ -37,22 +43,54 @@ const shared = {
                         })
                     })
                 });
-                
-                return returnedCities;
+                this.filteredCities = returnedCities;
+                 
             }
             
         },
         methods: {
-            changeResults(){
-                document.body.classList.add("results");
-            },
-            sendMessage(){
-                app.$emit('send-message', googleSearch)
-              }
+                changeResults(){
+                    document.body.classList.add("results");
+                },
+                sendMessage(){
+                    app.$emit('send-message', googleSearch)},
+        
+                goTo(index) {
+                    if (!this.autocompleterIsActive) {
+                        index = 0;
+                    }
+
+                    if (index > this.filteredCities.length - 1) {
+                        index = 0;
+                    } else if (index < 0) {
+                        index = this.filteredCities.length - 1;
+                    }
+                    
+                    this.autocompleterIsActive = true;
+                    this.activeResult = index;
+                    this.googleSearch = this.filteredCities[index].name;
+                },
+                goToResults(name) {
+                    this.autocompleterIsActive = true;
+
+                    if (name) {
+                        this.googleSearch = name;
+                    }
+
+                    this.isOnResults = true;
+                    this.filteredCities = [];
+                    document.body.classList.add("results");
+                    this.$nextTick(() => {
+                        this.autocompleterIsActive = false;
+                    });
+
+                }
+
 
         },
+    }
         
-    });
+    );
     
 
 

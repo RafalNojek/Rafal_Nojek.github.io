@@ -326,6 +326,29 @@ body, input, button {
     margin-bottom: 15px; */
 
 }
+.autocompleter_search:hover .autocompleter_search_in{
+    background-color:grey;
+    color:white;
+
+}
+
+.autocompleter_search .active .autocompleter_search_in{
+    background-color:grey;
+    color:white;
+
+}
+
+/* .city:hover{
+    background-color:grey;
+    color:white;
+
+}
+
+.city .active{
+    background-color:grey;
+    color:white;
+
+} */
 .autocompleter_search_in_text{
     padding-top: 5px;
     padding-left: 14px;

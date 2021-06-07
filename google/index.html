@@ -22,7 +22,8 @@
         <div class="search">
             <div class="search_in">
                 
-                <input class="type_in" type="text" v-model="shared.googleSearch">
+                <input class="type_in" type="text" v-model="shared.googleSearch"
+               >
                 <div class="cross"><i class="fas fa-times fa-1x"></i></div> 
                 <div class="keyboard"><a href="#"><i class="fas fa-keyboard fa-1x"></i></a></div>                  
                 <a href="#"><img class="microphone" src="microphone.png" alt="mikrofon" title="Search by voice"></a>           
@@ -162,15 +163,28 @@
           <div class="search">
               <div class="search_in">
                   <img class="lupa" src="lupaa.jpg" alt="lupa">
-                  <input list="browsers" v-model="googleSearch" class="type_in" type="text" placeholder="Search Google or type a URL"  >
+                  <input  v-model="googleSearch" class="type_in" type="text" placeholder="Search Google or type a URL" 
+                  @keyup.down="goTo(activeResult + 1)"
+                  @keyup.up="goTo(activeResult - 1)"
+                  @keyup.enter="goToResults()">
                   
                   <a href="#"><img class="microphone" src="microphone.png" alt="mikrofon" title="Search by voice"></a>
               </div>
             
           </div>
-          <div class="city" v-for="city in searchCities" @click=changeResults>
-            <div class="autocompleter_search">
-                <div class="autocompleter_search_in">
+          <!-- && activeResult === index -->
+          <div class="city"  
+          v-for="(city,index) in filteredCities" 
+            :class="{active : autocompleterIsActive && activeResult === index}"
+         
+            @click="goToResults(city.name)"        
+          >
+            <div class="autocompleter_search"
+            
+            >
+                <div class="autocompleter_search_in "
+                
+                >
                     <img class="lupa" src="lupaa.jpg" alt="lupa">
                     <div class="autocompleter_search_in_text">
                         <span v-html="city.nameHtml"></span>
