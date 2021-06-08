@@ -7,10 +7,13 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="results_styles.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="autocompleter.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js" integrity="sha512-JZSo0h5TONFYmyLMqp8k4oPhuo6yNk9mHM+FY50aBjpypfofqtEWsAgRDQm94ImLCzSaHeqNvYuD9382CEn2zw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>Google Homepage</title>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
     <script src="app.js" defer></script>
+    <script src="autocompleter.js"></script>
     <script src="cities.js"></script>
 </head>
 <body >
@@ -22,7 +25,7 @@
         <div class="search">
             <div class="search_in">
                 
-                <input class="type_in" type="text" v-model="shared.googleSearch"
+                <input class="type_in" type="text" 
                >
                 <div class="cross"><i class="fas fa-times fa-1x"></i></div> 
                 <div class="keyboard"><a href="#"><i class="fas fa-keyboard fa-1x"></i></a></div>                  
@@ -160,41 +163,8 @@
           <div class="logo">
             <img id="google" src="google2.0.0.jpg" height="250" alt="logo" >
           </div>
-          <div class="search">
-              <div class="search_in">
-                  <img class="lupa" src="lupaa.jpg" alt="lupa">
-                  <input  v-model="googleSearch" class="type_in" type="text" placeholder="Search Google or type a URL" 
-                  @keyup.down="goTo(activeResult + 1)"
-                  @keyup.up="goTo(activeResult - 1)"
-                  @keyup.enter="goToResults()">
-                  
-                  <a href="#"><img class="microphone" src="microphone.png" alt="mikrofon" title="Search by voice"></a>
-              </div>
-            
-          </div>
-          <!-- && activeResult === index -->
-          <div class="city"  
-          v-for="(city,index) in filteredCities" 
-            :class="{active : autocompleterIsActive && activeResult === index}"
-         
-            @click="goToResults(city.name)"        
-          >
-            <div class="autocompleter_search"
-            
-            >
-                <div class="autocompleter_search_in "
-                
-                >
-                    <img class="lupa" src="lupaa.jpg" alt="lupa">
-                    <div class="autocompleter_search_in_text">
-                        <span v-html="city.nameHtml"></span>
-                    </div>
-                    
-            </div>
-            </div>
-            
-          </div>
-            
+          <v-autocompleter v-bind:options="cities" ref="bottom" @enter="goToResults" :value="googleSearch"
+          @input="googleSearch = $event"></v-autocompleter>
                 
             
           <div class="search-field">
